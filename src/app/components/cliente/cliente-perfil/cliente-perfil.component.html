@@ -1,0 +1,54 @@
+<div class="perfil-container">
+  <div class="perfil-header">
+    <h1>Perfil do Cliente</h1>
+    <button mat-icon-button color="primary" (click)="voltarParaPrincipal()" matTooltip="Voltar para a página principal">
+      <mat-icon>home</mat-icon>
+    </button>
+  </div>
+
+  <div *ngIf="cliente">
+    <h2>Dados Pessoais</h2>
+    <p><strong>Nome:</strong> {{ cliente.nome }} {{ cliente.sobrenome }}</p>
+    <p><strong>Login:</strong> {{ cliente.login }}</p>
+    <p><strong>CPF:</strong> {{ cliente.cpf }}</p>
+    <!-- <button mat-button (click)="editarDados()">Editar Dados</button> -->
+    <mat-form-field class="profile-input">
+      <mat-label>Senha</mat-label>
+      <div>
+        <input matInput type="password" id="senha" value="*********" (click)="dialog.open(DialogChangePasswordComponent, {width: '350px'})">
+      </div>
+    </mat-form-field>
+  </div>
+
+  <div *ngIf="cliente">
+    <h2>Perfil de {{ cliente.nome }}</h2>
+    <button mat-raised-button color="primary" [routerLink]="['/perfil/enderecos/new', cliente.id]">Adicionar Endereço</button>
+    <button mat-raised-button color="primary" [routerLink]="['/perfil/telefones/new', cliente.id]">Adicionar Telefone</button>
+    <div>
+      <h3>Telefones</h3>
+      <ul>
+        <li *ngFor="let telefone of cliente.listaTelefone">
+          {{ telefone.codigoArea }} - {{ telefone.numero }}</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Endereços</h3>
+      <ul>
+        <li *ngFor="let endereco of cliente.listaEndereco">
+          {{ endereco.rua }} - {{ endereco.numero }} - {{ endereco.cidade }} - {{ endereco.estado }} - {{ endereco.cep }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Meus Pedidos</h2>
+
+  <div *ngFor="let pedido of pedidos" class="pedido-item">
+    <p><strong>Pedido #{{ pedido.id }}</strong></p>
+    <p><strong>Data:</strong> {{ pedido.dataHora | date }}</p>
+    <p><strong>Total:</strong> {{ pedido.totalPedido | currency:'BRL' }}</p>
+    <!-- <p><strong>Total:</strong> {{ pedido.itens | currency:'BRL' }}</p> -->
+    <button mat-button (click)="verDetalhes(pedido.id)">Ver Detalhes</button>
+  </div>
+<!-- </div> -->

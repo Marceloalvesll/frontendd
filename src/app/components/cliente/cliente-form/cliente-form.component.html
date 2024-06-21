@@ -1,0 +1,131 @@
+<mat-sidenav-container class="sidenav-container" style="height: 100%">
+    <mat-sidenav #sidenav mode="over" opened="false">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/home">Inicio</a>
+        <a mat-list-item routerLink="/produtos">Produtos</a>
+        <a mat-list-item routerLink="/enderecos">Endereços</a>
+        <a mat-list-item routerLink="/telefones">Telefones</a>
+        <a mat-list-item routerLink="/pedidos">Pedidos</a>
+        <a mat-list-item routerLink="/clientes">Meu usuário</a>
+  
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <mat-toolbar class="mat-toolbar-black">
+        <!-- <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button> -->
+        <span class="toolbar-title">Cadastro de usuário</span>
+      </mat-toolbar>
+  
+      <div class="form-container">
+        <mat-card>
+          <mat-card-content>
+            <form [formGroup]="formGroup">
+              <!-- Input para o campo Nome -->
+              <mat-form-field appearance="outline" class="full-width-input">
+                <mat-label>Nome</mat-label>
+                <input matInput type="text" formControlName="nome" />
+                <mat-error
+                  *ngIf="
+                    formGroup.get('nome')?.errors &&
+                    formGroup.get('nome')?.touched
+                  "
+                >
+                  {{ getErrorMessage("nome", formGroup.get("nome")?.errors) }}
+                </mat-error>
+              </mat-form-field>
+  
+              <!-- Input para o campo Login -->
+              <mat-form-field appearance="outline" class="full-width-input">
+                <mat-label>Login</mat-label>
+                <input matInput type="text" formControlName="login" />
+                <mat-error
+                  *ngIf="
+                    formGroup.get('login')?.errors &&
+                    formGroup.get('login')?.touched
+                  "
+                >
+                  {{ getErrorMessage("login", formGroup.get("login")?.errors) }}
+                </mat-error>
+              </mat-form-field>
+  
+              <!-- Input para o campo Senha -->
+              <mat-form-field appearance="outline" class="full-width-input">
+                <mat-label>Senha</mat-label>
+                <input matInput type="password" formControlName="senha" />
+                <mat-error
+                  *ngIf="
+                    formGroup.get('senha')?.errors &&
+                    formGroup.get('senha')?.touched
+                  "
+                >
+                  {{ getErrorMessage("senha", formGroup.get("senha")?.errors) }}
+                </mat-error>
+              </mat-form-field>
+  
+              <!-- Input para o campo CPF -->
+              <mat-form-field appearance="outline" class="full-width-input">
+                <mat-label>CPF</mat-label>
+                <input matInput type="text" formControlName="cpf" />
+                <mat-error
+                  *ngIf="
+                    formGroup.get('cpf')?.errors && formGroup.get('cpf')?.touched
+                  "
+                >
+                  {{ getErrorMessage("cpf", formGroup.get("cpf")?.errors) }}
+                </mat-error>
+              </mat-form-field>
+<!--   
+              <mat-form-field appearance="outline" class="full-width-input">
+                <mat-label>Perfil</mat-label>
+                <mat-select formControlName="idPerfil">
+                  @for (perfil of perfils; track perfil) {
+                  <mat-option [value]="perfil.id">{{ perfil.label }}</mat-option>
+                  }
+                </mat-select> -->
+                <!-- Validação para o campo de login -->
+                <!-- <mat-error
+                  *ngIf="
+                    formGroup.get('perfil')?.errors &&
+                    formGroup.get('perfil')?.touched
+                  " -->
+                <!-- >
+                  @if (formGroup.get('perfil')?.errors?.['required']) {
+                  <span>a data do pedido deve ser informado.</span>
+                  } @if (formGroup.get('perfil')?.errors?.['minlength']) {
+                  <span>a data pedido deve possuir ao menos 4 caracteres.</span>
+                  } @if (formGroup.get('perfil')?.hasError('apiError')) {
+                  <span>{{ formGroup.get("perfil")?.getError("apiError") }}</span>
+                  }
+                </mat-error>
+              </mat-form-field>
+   -->
+              <!-- Botões de ação -->
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="salvarCliente()"
+                [disabled]="formGroup.invalid"
+              >
+                Salvar
+              </button>
+              <button
+                mat-raised-button
+                *ngIf="formGroup.get('id')?.value"
+                color="warn"
+                (click)="excluirCliente()"
+                [disabled]="formGroup.invalid"
+              >
+                Excluir
+              </button>
+              <!-- <button mat-raised-button routerLink="/login">Cancelar</button> -->
+              <button mat-raised-button routerLink="/produtos">Cancelar</button>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

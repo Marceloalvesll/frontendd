@@ -1,0 +1,79 @@
+<mat-sidenav-container class="sidenav-container" style="height: 100%">
+  <mat-sidenav #sidenav mode="over" opened="false">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/clientes">Voltar</a>
+      <a mat-list-item routerLink="/produtos">Produtos</a>
+      <a mat-list-item routerLink="/pedidos">Pedidos</a>
+      <a mat-list-item routerLink="/clientes">Meu cliente</a>
+      <!-- Adicione mais links conforme necessário -->
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar class="mat-toolbar-black">
+   
+      <!-- <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button> -->
+      <button mat-icon-button class="back-button" [routerLink]="'/clientes'">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <div class="flex-container">
+        <span class="toolbar-title">Controle de telefones</span>
+        <button
+          mat-fab
+          color="accent"
+          routerLink="/telefones/cliente/{{ idCliente }}/new"
+        >
+          <mat-icon class="add-button-icon">add_call</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar>
+    <p></p>
+    <table mat-table [dataSource]="telefones" class="mat-elevation-z8">
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <!-- Código de Área Column -->
+      <ng-container matColumnDef="codigoArea">
+        <th mat-header-cell *matHeaderCellDef>Código de Área</th>
+        <td mat-cell *matCellDef="let element">{{ element.codigoArea }}</td>
+      </ng-container>
+
+      <!-- Número Column -->
+      <ng-container matColumnDef="numero">
+        <th mat-header-cell *matHeaderCellDef>Número</th>
+        <td mat-cell *matCellDef="let element">{{ element.numero }}</td>
+      </ng-container>
+
+      <!-- Ação Column -->
+      <ng-container matColumnDef="acao">
+        <th mat-header-cell *matHeaderCellDef>Ação</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-icon-button
+            color="primary"
+            routerLink="/telefones/cliente/{{ idCliente }}/edit/{{
+              element.id
+            }}"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="excluirTelefone(element)"
+          >
+            <mat-icon>phone_disabled</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Definição das colunas a serem exibidas -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table> </mat-sidenav-content
+></mat-sidenav-container>

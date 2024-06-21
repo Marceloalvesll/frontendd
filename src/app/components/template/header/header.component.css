@@ -1,0 +1,21 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.demo-section + .demo-section {
+    margin-top: 16px;
+  }
+
+.bateria-icon {
+    width: 64px;
+    height: 64px;
+}
+
+mat-toolbar {
+    background: black !important;
+    font-family: "Montserrat", sans-serif !important;
+}
+
+mat-icon {
+    color: white !important;
+}

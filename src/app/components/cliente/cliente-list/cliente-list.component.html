@@ -1,0 +1,113 @@
+<mat-sidenav-container class="sidenav-container" style="height: 100%">
+    <!-- <mat-sidenav #sidenav mode="over" [opened]="isMenuOpen">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/usuarios">Menu</a>
+        <a mat-list-item routerLink="/admin/produtos">Produtos</a>
+  
+        <a mat-list-item routerLink="/pedidos">Pedidos</a>
+        <a mat-list-item routerLink="/usuarios">Meu usuário</a>
+        <a mat-list-item routerLink="/cupom">Meus cupons</a>
+      </mat-nav-list>
+    </mat-sidenav> -->
+  
+    <!-- <mat-sidenav-content> -->
+    <mat-toolbar>
+      <!-- <button mat-icon-button class="menu-button" (click)="toggleSidebar()">
+        <mat-icon>menu</mat-icon>
+      </button> -->
+      <button mat-icon-button class="back-button" [routerLink]="'/login'">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <div class="flex-container">
+        <span class="toolbar-title"> Controle de Clientes</span>
+        <button mat-fab color="accent" routerLink="/clientes/new">
+          <mat-icon>person_add</mat-icon>
+        </button>
+      </div>
+      <!-- Adicionando o botão de adicionar cupom -->
+    </mat-toolbar>
+  
+    <table mat-table [dataSource]="clientes" class="mat-elevation-z8">
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+  
+      <!-- Nome Column -->
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let element">{{ element.nome }}</td>
+      </ng-container>
+  
+      <!-- Login Column -->
+      <ng-container matColumnDef="login">
+        <th mat-header-cell *matHeaderCellDef>Login</th>
+        <td mat-cell *matCellDef="let element">{{ element.login }}</td>
+      </ng-container>
+  
+      <!-- Senha Column -->
+      <!-- <ng-container matColumnDef="senha">
+        <th mat-header-cell *matHeaderCellDef>Senha</th>
+        <td mat-cell *matCellDef="let element">{{ element.senha }}</td>
+      </ng-container> -->
+  
+      <!-- Cpf Column -->
+      <ng-container matColumnDef="cpf">
+        <th mat-header-cell *matHeaderCellDef>CPF</th>
+        <td mat-cell *matCellDef="let element">{{ element.cpf }}</td>
+      </ng-container>
+  
+  
+      <!-- Lista de Telefone Column
+      <ng-container matColumnDef="listaTelefone">
+        <th mat-header-cell *matHeaderCellDef>Telefones</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-icon-button
+            color="primary"
+            routerLink="/telefones/usuario/{{ element.id }}"
+          >
+            <mat-icon> add_call </mat-icon>
+          </button>
+        </td>
+      </ng-container>
+   -->
+      <!-- Lista de Endereço Column -->
+      <!-- <ng-container matColumnDef="listaEndereco">
+        <th mat-header-cell *matHeaderCellDef>Endereços</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-icon-button
+            color="primary"
+            routerLink="/enderecos/usuario/{{ element.id }}"
+          >
+            <mat-icon>add_home_work</mat-icon>
+          </button>
+        </td>
+      </ng-container> -->
+  
+      <!-- Ação Column -->
+      <ng-container matColumnDef="acao">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-icon-button
+            color="primary"
+            routerLink="/admin/clientes/edit/{{ element.id }}"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <!-- <button mat-icon-button color="warn" (click)="excluirCliente(element)">
+            <mat-icon>delete</mat-icon>
+          </button> -->
+        </td>
+      </ng-container>
+  
+      <!-- Definição das colunas a serem exibidas -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <!-- </mat-sidenav-content> -->
+  </mat-sidenav-container>
+  

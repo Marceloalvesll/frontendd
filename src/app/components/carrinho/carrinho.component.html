@@ -1,0 +1,106 @@
+<!-- <ng-container *ngIf="carrinhoItens.length > 0; else carrinhoVazio">
+ 
+  <div class="carrinho-container">
+    
+    <div *ngFor="let item of carrinhoItens" class="carrinho-item">
+      <img mat-card-image [src]="item.imagemUrl" alt="{{ item.nome }}" class="carrinho-imagem" />
+      <div class="carrinho-detalhes">
+        <h3>{{ item.nome }}</h3>
+        <p>Preço: {{ item.preco }}</p>
+        <p>Quantidade: {{ item.quantidade }}</p>
+        <p>Total: {{ item.quantidade * item.preco }}</p>
+        <div class="icones-controle-container">
+          <img class="icones-controle" src="/assets/icons/iconizer-add-svgrepo-com_1.svg" alt="MAIS" (click)="aumentarQuantidade(item)">
+          <img class="icones-controle" src="/assets/icons/iconizer-iconizer-minus-svgrepo-com.svg" alt="MENOS" (click)="diminuirQuantidade(item)">
+        </div>
+        <button mat-raised-button (click)="removerItem(item)">Remover do Carrinho</button>
+      </div>
+    </div>
+
+    <p class="carrinho-total">Total do Carrinho: {{ calcularTotal() }}</p>
+    <div class="carrinho-buttons">
+      <button mat-raised-button (click)="finalizarCompra()">Finalizar Compra</button>
+      <button mat-raised-button color="accent" (click)="continuarComprando()">Continuar Comprando</button>
+    </div>
+  </div>
+
+</ng-container>
+<ng-template #carrinhoVazio>
+  <p class="empty-cart">O carrinho está vazio.</p>
+</ng-template> -->
+
+
+<ng-container *ngIf="carrinhoItens.length > 0; else carrinhoVazio">
+  <div class="carrinho-container">
+    <mat-card *ngFor="let item of carrinhoItens" class="carrinho-item">
+      <div class="carrinho-header" >
+        <img mat-card-image [src]="item.imagemUrl" alt="{{ item.nome }}" class="carrinho-imagem" />
+        <p>{{ item.nome }}</p>
+        <p>Preço: {{ item.preco }}</p>
+        <p>Quantidade: {{ item.quantidade }}</p>
+        <p>Total: {{ item.quantidade * item.preco }}</p>
+        <div class="botoes-controle">
+          <button mat-icon-button (click)="diminuirQuantidade(item)">
+            <mat-icon>remove</mat-icon>
+          </button>
+          <span>{{ item.quantidade }}</span>
+          <button mat-icon-button (click)="aumentarQuantidade(item)">
+            <mat-icon>add</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="removerItem(item)" class="botao-excluir">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+ 
+    </mat-card>
+    <div class="carrinho-total">
+      <div class="form-field">
+        <label>Endereço para Entrega:</label>
+        <select formControlName="idEndereco">
+          @for(endereco of enderecos; track endereco; let idx = $index){
+            <option [ngValue]="endereco.id" >
+              {{endereco.rua}}, {{endereco.cidade}}, {{endereco.estado}}, {{endereco.cep}}
+            </option>
+          }
+        </select>
+      </div>
+        <button mat-raised-button (click)="continuarComprando()" class="custom-button">
+          Continuar Comprando
+        </button>
+
+        <button mat-raised-button (click)="toggleLoginPanel()" class="custom-button">
+          Ir para Checkout
+        </button>
+
+        <mat-expansion-panel [expanded]="showLoginPanel">
+
+
+
+
+          <mat-expansion-panel-header>
+
+            <mat-panel-title>
+              Confirmação de Login
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div *ngIf="!clienteLogado">
+            <p>Você precisa estar logado para continuar o checkout.</p>
+            <button mat-raised-button (click)="irParaLogin()" class="custom-button">
+              Login
+            </button>
+          </div>
+          <div *ngIf="clienteLogado">
+            <p>Você está logado. Pode prosseguir para o checkout.</p>
+            <button mat-raised-button (click)="irParaCheckout()" class="custom-button">
+              Continuar para Checkout
+            </button>
+          </div>
+        </mat-expansion-panel>
+      </div>
+    </div>
+  <!-- </div> -->
+</ng-container>
+<ng-template #carrinhoVazio>
+  <p>O carrinho está vazio.</p>
+</ng-template>

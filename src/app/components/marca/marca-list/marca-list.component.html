@@ -1,0 +1,85 @@
+<mat-toolbar color="primary">
+    <div class="flex-container">
+
+      <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/bateriasCompleta">
+          <span>Bateria Completa</span>
+        </button>
+        <button mat-menu-item routerLink="/tamboresAvulso">
+  
+          <span>Tambor Avulso</span>
+        </button>
+        <button mat-menu-item routerLink="/categorias">
+  
+          <span>Categoria</span>
+        </button>
+        <button mat-menu-item routerLink="/acessorios">
+  
+          <span>Acessório</span>
+        </button>
+        <button mat-menu-item routerLink="/marcas">
+  
+          <span>Marca</span>
+        </button>
+        <button mat-menu-item routerLink="/baquetas">
+  
+          <span>Baqueta</span>
+        </button>
+
+        <button mat-menu-item routerLink="/enderecos">
+  
+          <span>Endereço</span>
+        </button>
+       
+        <button mat-menu-item routerLink="/telefones">
+  
+          <span>Telefone</span>
+        </button>
+      </mat-menu> -->
+
+      <span class="toolbar-title">Controle de Marcas</span>
+      <button mat-fab color="black" routerLink="/admin/marcas/new">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+
+<table mat-table [dataSource]="marcas" class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Nome Marca Column -->
+    <ng-container matColumnDef="nomeMarca">
+      <th mat-header-cell *matHeaderCellDef> Nome Marca </th>
+      <td mat-cell *matCellDef="let element"> {{element.nomeMarca}} </td>
+    </ng-container>
+
+    <!-- Pais Origem Column -->
+    <ng-container matColumnDef="paisOrigem">
+      <th mat-header-cell *matHeaderCellDef> Pais Origem </th>
+      <td mat-cell *matCellDef="let element"> {{element.paisOrigem}} </td>
+    </ng-container>
+
+    <!-- Acao Column -->
+    <ng-container matColumnDef="acao">
+        <th mat-header-cell *matHeaderCellDef> Ação </th>
+        <td mat-cell *matCellDef="let element"> 
+          <button mat-icon-button 
+                 
+                  routerLink="/admin/marcas/edit/{{element.id}}">
+                  <mat-icon>edit</mat-icon>
+          </button>
+               
+        </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

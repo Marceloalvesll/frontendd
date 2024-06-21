@@ -1,0 +1,89 @@
+*{
+  font-family: "Montserrat", sans-serif;
+}
+
+.checkout-container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+
+
+.checkout-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.total-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.payment-section {
+  margin-top: 30px;
+}
+
+.card-visual {
+  width: 100%;
+  max-width: 400px;
+  height: 200px;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+  background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%);
+  color: white;
+  font-family: 'Courier New', Courier, monospace;
+  position: relative;
+  box-sizing: border-box;
+}
+
+
+
+
+
+.card-number {
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+.card-name {
+  position: absolute;
+  bottom: 40px;
+  left: 20px;
+  font-size: 16px;
+}
+
+.card-expiry {
+  position: absolute;
+  bottom: 40px;
+  right: 20px;
+  font-size: 16px;
+  text-align: right;
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+
+  
+.checkout-button {
+  width: 100%;
+  margin-top: 20px;
+  background: #3CB371 !important;
+  color: #fff !important;
+  transition: background 0.3s;
+  font-family: "Montserrat", sans-serif;
+}
+
+.checkout-button:hover {
+  background: #2E8B57 !important;
+}

@@ -1,0 +1,176 @@
+<!-- <mat-sidenav-container class="sidenav-container" style="height: 100%">
+  <mat-sidenav #sidenav mode="over" opened="false">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home">Inicio</a>
+      <a mat-list-item routerLink="/produtos">Produtos</a>
+      <a mat-list-item routerLink="/enderecos">Endereços</a>
+      <a mat-list-item routerLink="/telefones">Telefones</a>
+      <a mat-list-item routerLink="/pedidos">Pedidos</a>
+      <a mat-list-item routerLink="/clientes">Meu usuário</a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar class="mat-toolbar-black">
+
+
+      <span class="toolbar-title">Cadastro de telefones</span>
+    </mat-toolbar>
+    <p></p>
+    <div class="form-container">
+      <mat-card>
+        <mat-card-content>
+          <form [formGroup]="formGroup">
+
+            <mat-form-field appearance="fill" class="full-width-input">
+              <mat-label>Codigo de area</mat-label>
+              <input matInput type="text" formControlName="codigoArea" />
+              <mat-error
+                *ngIf="
+                  formGroup.get('codigoArea')?.errors &&
+                  formGroup.get('codigoArea')?.touched
+                "
+              >
+                @if (formGroup.get('codigoArea')?.errors?.['required']) {
+                <span>codigoArea deve ser informado.</span>
+                } @if (formGroup.get('codigoArea')?.errors?.['minlength']) {
+                <span>codigoArea deve possuir ao menos 4 caracteres.</span>
+                } @if (formGroup.get('codigoArea')?.hasError('apiError')) {
+                <span>{{
+                  formGroup.get("codigoArea")?.getError("apiError")
+                }}</span>
+                }</mat-error
+              >
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline" class="full-width-input">
+              <mat-label>Numero</mat-label>
+              <input matInput type="text" formControlName="numero" />
+
+              <mat-error
+                *ngIf="
+                  formGroup.get('numero')?.errors &&
+                  formGroup.get('numero')?.touched
+                "
+              >
+                @if (formGroup.get('numero')?.errors?.['required']) {
+                <span>numero deve ser informado.</span>
+                } @if (formGroup.get('numero')?.errors?.['minlength']) {
+                <span>numero deve possuir ao menos 4 caracteres.</span>
+                } @if (formGroup.get('numero')?.hasError('apiError')) {
+                <span>{{ formGroup.get("numero")?.getError("apiError") }}</span>
+                }</mat-error
+              >
+            </mat-form-field>
+
+
+          </form>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="salvarTelefone()"
+            [disabled]="formGroup.invalid"
+          >
+            Salvar
+          </button>
+          <button
+            mat-raised-button
+            *ngIf="formGroup?.get('id')?.value"
+            color="warn"
+            (click)="excluirTelefone()"
+            [disabled]="formGroup.invalid"
+          >
+            Excluir
+          </button>
+          <button
+            mat-raised-button
+            routerLink="/telefones/cliente/{{ idCliente }}/"
+          >
+            Cancelar
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-sidenav-content></mat-sidenav-container
+> -->
+
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" [(opened)]="isMenuOpen">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/perfil">Perfil</a>
+        <!-- <a mat-list-item routerLink="/perfil/edit">Editar Dados</a>
+        <a mat-list-item routerLink="/perfil/pedidos">Pedidos Realizados</a> -->
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar>
+        <button mat-icon-button (click)="toggleSidebar()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Cadastro de Telefone</span>
+      </mat-toolbar>
+      <div class="form-container">
+  
+        <!-- <mat-card>
+          <mat-card-content>
+            <form [formGroup]="formGroup">
+              <mat-form-field appearance="outline">
+                <mat-label>Código de Área</mat-label>
+                <input matInput formControlName="codigoArea" />
+              </mat-form-field>
+  
+              <mat-form-field appearance="outline">
+                <mat-label>Número</mat-label>
+                <input matInput formControlName="numero" />
+              </mat-form-field>
+  
+              <button mat-raised-button color="primary" (click)="salvarTelefone()">
+                Salvar
+              </button>
+              <button mat-raised-button color="warn" (click)="excluirTelefone()">
+                Excluir
+              </button>
+            </form>
+          </mat-card-content>
+        </mat-card> -->
+  
+        <mat-card>
+          <mat-card-title>Adicionar Telefone</mat-card-title>
+          <mat-card-content>
+            <form [formGroup]="formGroup" (ngSubmit)="salvarTelefone()">
+              <mat-form-field appearance="fill">
+                <mat-label>Código de Área</mat-label>
+                <input matInput formControlName="codigoArea" required>
+                <mat-error *ngIf="formGroup.get('codigoArea')?.hasError('required')">
+                  DDD é obrigatório.
+                </mat-error>
+                <mat-error *ngIf="formGroup.get('codigoArea')?.hasError('invalidDDD')">
+                  DDD inválido.
+                </mat-error>
+              </mat-form-field>
+  
+              <mat-form-field appearance="fill">
+                <mat-label>Número</mat-label>
+                <input matInput formControlName="numero" required>
+                <mat-error *ngIf="formGroup.get('numero')?.hasError('required')">
+                  Número de telefone é obrigatório.
+                </mat-error>
+                <mat-error *ngIf="formGroup.get('numero')?.hasError('invalidTelefone')">
+                  Número de telefone inválido.
+                </mat-error>
+              </mat-form-field>
+  
+              <button mat-raised-button color="primary" type="submit">Salvar</button>
+            </form>
+          </mat-card-content>
+        </mat-card>
+  
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

@@ -1,0 +1,88 @@
+/* Estilos gerais */
+
+
+body {
+  font-family: "Montserrat", sans-serif !important;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+mat-sidenav-container {
+  height: 100vh;
+}
+
+mat-sidenav {
+  width: 250px;
+  background-color: #3CB371;
+  color: white !important;
+}
+
+mat-nav-list a {
+  color: white !important;
+  text-decoration: none;
+  background-color: #3CB371;
+}
+
+mat-nav-list a:hover {
+  background-color:  #2E8B57;
+}
+
+mat-toolbar {
+  background: #000000;
+  color: white;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+mat-toolbar button {
+  margin-right: 20px;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.form-container {
+  padding: 20px;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+mat-card {
+  margin: 20px auto;
+  max-width: 600px;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+mat-card-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  font-family: "Montserrat", sans-serif !important;
+  background-color: #3CB371;
+  transition: background 0.3s;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color:  #2E8B57;
+}
+
+
+
+
+
+
+
+

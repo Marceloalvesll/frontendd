@@ -1,0 +1,21 @@
+<mat-drawer-container class="container">
+
+    <mat-drawer #drawer  mode="side" opened>
+        <mat-toolbar>
+            <span>Menu</span>
+        </mat-toolbar>
+        <mat-nav-list>
+            <!-- <mat-list-item>Home</mat-list-item> -->
+            <mat-list-item routerLink="/admin/clientes">Controle de Cliente</mat-list-item>
+            <mat-list-item routerLink="/admin/enderecos">Controle de Endereço</mat-list-item>
+            <mat-list-item routerLink="/admin/telefones">Controle de Telefone</mat-list-item>
+            <mat-list-item routerLink="/admin/bateriasCompleta">Controle de Bateria Completa</mat-list-item>
+            <mat-list-item routerLink="/admin/marcas">Controle de Marca</mat-list-item>
+            <mat-list-item routerLink="/admin/categorias">Controle de Categoria</mat-list-item>
+        </mat-nav-list>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>

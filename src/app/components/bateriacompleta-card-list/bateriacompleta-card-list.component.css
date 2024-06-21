@@ -1,0 +1,189 @@
+/* 
+ img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    
+    justify-items: center;
+}
+
+.centered-text {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+}
+
+mat-card {
+    
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+mat-card:hover {
+    transform: translateY(-10px);
+    
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+mat-card-footer button {
+    background: #3CB371 !important;
+    font-family: "Montserrat", sans-serif;
+    color: white !important;
+    transition: background 0.3s;
+    border: none;
+    border-radius: 0 0 8px 8px;
+}
+
+mat-card-footer button:hover {
+    background: #2E8B57 !important;
+}
+
+mat-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-to-cart-button, .view-details-button {
+    width: 48%;
+    padding: 16px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s;
+    border: none;
+    border-radius: 0 0 8px 8px;
+    cursor: pointer;
+}
+
+.add-to-cart-button {
+   
+    background: #2E8B57 !important;
+    color: white;
+}
+
+.add-to-cart-button:hover {
+    background: #2E8B57;
+}
+
+.view-details-button {
+    background: #007BFF;
+    color: white;
+}
+
+.view-details-button:hover {
+    background: #0056b3;
+} */
+
+
+
+img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    
+    justify-items: center;
+}
+
+.centered-text {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+}
+
+mat-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+mat-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+mat-card-footer button {
+    background: #3CB371 !important;
+    font-family: "Montserrat", sans-serif;
+    color: white !important;
+    transition: background 0.3s;
+    border: none;
+    border-radius: 0 0 8px 8px;
+}
+
+mat-card-footer button:hover {
+    background: #2E8B57 !important;
+}
+
+mat-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-to-cart-button, .view-details-button {
+    width: 48%;
+    padding: 16px;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s;
+    border: none;
+    border-radius: 0 0 8px 8px;
+    cursor: pointer;
+}
+
+.add-to-cart-button {
+    background: #2E8B57 !important;
+    color: white;
+}
+
+.add-to-cart-button:hover {
+    background: #2E8B57;
+}
+
+.view-details-button {
+    background: #007BFF;
+    color: white;
+}
+
+.view-details-button:hover {
+    background: #0056b3;
+}
+
+.view-more-button {
+    background: #6db0f8; /* Cor de fundo azul */
+    color: white !important;  /* Cor do texto branca */
+    font-family: "Montserrat", sans-serif;
+    border: none; /* Sem borda */
+    padding: 8px 16px; /* Espaçamento interno */
+    border-radius: 4px; /* Borda arredondada */
+    cursor: pointer; /* Cursor de ponteiro */
+    transition: background 0.3s; /* Transição suave para mudança de cor */
+    text-align: center; /* Alinhamento central do texto */
+}
+
+.view-more-button:hover {
+    background: #2889f1; /* Cor de fundo mais escura ao passar o mouse */
+}

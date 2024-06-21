@@ -1,0 +1,98 @@
+<mat-sidenav-container class="sidenav-container" style="height: 100%">
+  <!-- <mat-sidenav #sidenav mode="over" opened="false">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/clientes">Voltar</a>
+      <a mat-list-item routerLink="/produtos">Produtos</a>
+
+      <a mat-list-item routerLink="/pedidos">Pedidos</a>
+      <a mat-list-item routerLink="/clientes">Meu cliente</a>
+
+    </mat-nav-list>
+  </mat-sidenav> -->
+
+  <mat-sidenav-content>
+    <mat-toolbar class="mat-toolbar-black">
+      
+      <!-- <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button> -->
+      <button mat-icon-button class="back-button" [routerLink]="'/clientes'">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <div class="flex-container">
+        <span class="toolbar-title">Controle de enderecos</span>
+        <button
+          mat-fab
+          color="accent"
+          routerLink="/enderecos/cliente/{{ idCliente }}/new"
+        >
+          <mat-icon class="add-button-icon">add_home_work</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar>
+    <p></p>
+    <table mat-table [dataSource]="enderecos" class="mat-elevation-z8">
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <!-- Rua Column -->
+      <ng-container matColumnDef="rua">
+        <th mat-header-cell *matHeaderCellDef>Rua</th>
+        <td mat-cell *matCellDef="let element">{{ element.rua }}</td>
+      </ng-container>
+
+      <!-- Número da Casa Column -->
+      <ng-container matColumnDef="numero">
+        <th mat-header-cell *matHeaderCellDef>Número da Casa</th>
+        <td mat-cell *matCellDef="let element">{{ element.numero }}</td>
+      </ng-container>
+
+      <!-- Cidade Column -->
+      <ng-container matColumnDef="cidade">
+        <th mat-header-cell *matHeaderCellDef>Cidade</th>
+        <td mat-cell *matCellDef="let element">{{ element.cidade }}</td>
+      </ng-container>
+
+      <!-- Estado Column -->
+      <ng-container matColumnDef="estado">
+        <th mat-header-cell *matHeaderCellDef>Estado</th>
+        <td mat-cell *matCellDef="let element">{{ element.estado }}</td>
+      </ng-container>
+
+      <!-- CEP Column -->
+      <ng-container matColumnDef="cep">
+        <th mat-header-cell *matHeaderCellDef>CEP</th>
+        <td mat-cell *matCellDef="let element">{{ element.cep }}</td>
+      </ng-container>
+
+      <!-- Ação Column -->
+      <ng-container matColumnDef="acao">
+        <th mat-header-cell *matHeaderCellDef>Ação</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-icon-button
+            color="primary"
+            routerLink="/enderecos/cliente/{{ idCliente }}/edit/{{
+              element.id
+            }}"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="excluirEndereco(element)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Definição das colunas a serem exibidas -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table> </mat-sidenav-content
+></mat-sidenav-container>

@@ -1,0 +1,105 @@
+
+  <div class="hero" style="background-image: url('/assets/images/pearl.jpg');">
+    <div class="hero-content">
+      <h1>Bem-vindo à MC DRUM'S</h1>
+      <p>Encontre a bateria perfeita para sua necessidade!</p>
+      <a href="/produtos" class="btn-primary">Ver Produtos</a>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <section class="featured-products">
+      <h2>Produtos em Destaque</h2>
+      <div class="product-list">
+        <a href="/produtos" class="product-card">
+          <img src="/assets/images/bateria11.jpg" alt="Produto 1">
+          <h3>Bateria Eletrônica XYZ</h3>
+          <p>Bateria acompanhada de 4 tambores.</p>
+        </a>
+        <a href="/produtos" class="product-card">
+          <img src="/assets/images/bateria12.jpg" alt="Produto 2">
+          <h3>Bateria Acústica ABC</h3>
+          <p>Ferragens em aço escovado.</p>
+        </a>
+        <a href="/produtos" class="product-card">
+          <img src="/assets/images/bateria9.jpg" alt="Produto 3">
+          <h3>Bateria Acústica Pearl</h3>
+          <p>Ferragens acompanhada em aço escovado.</p>
+        </a>
+      </div>
+    </section>
+
+  
+
+  <div
+  style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    gap: 20px;
+  "
+>
+  <app-image-slider
+    [indicatorsVisible]="false"
+    [animationSpeed]="200"
+    [slides]="slides"
+    [autoPlay]="true"
+    [autoPlaySpeed]="4000"
+  ></app-image-slider>
+
+
+<app-image-slider
+  [indicatorsVisible]="true"
+  [animationSpeed]="500"
+  [slides]="slides"
+  [autoPlay]="true"
+  [autoPlaySpeed]="2000">
+</app-image-slider>
+</div>
+
+  <div class="container">
+  
+    <section class="video-highlight">
+      <h2>Destaque da Semana</h2>
+      <div class="video-card">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/yNQEkzMZD20" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h3>Bateria Acústica XYZ - Review Completo</h3>
+        <p>Assista ao vídeo para saber mais sobre a Bateria Acústica XYZ, suas funcionalidades e vantagens.</p>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2>O que nossos clientes dizem</h2>
+      <div class="testimonial">
+        <p>"A melhor loja de baterias que já encontrei! Excelente atendimento e produtos de qualidade."</p>
+        <h4>- João Silva</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Comprei minha primeira bateria aqui e estou muito satisfeito com a compra. Recomendo!"</p>
+        <h4>- Maria Oliveira</h4>
+      </div>
+    </section>
+
+    <!-- <section class="categories">
+      <h2>Categorias</h2>
+      <div class="category-list">
+        <a href="/produtos">
+          <img src="/assets/images/bateria10.jpg" alt="Eletrônicas">
+          <span>Baterias Eletrônicas</span>
+        </a>
+        <a href="/produtos">
+          <img src="/assets/images/bateria12.jpg" alt="Acústicas">
+          <span>Baterias Acústicas</span>
+        </a>
+        <a href="/produtos">
+          <img src="/assets/images/bateria9.jpg" alt="Acessórios">
+          <span>Acessórios</span>
+        </a>
+      </div>
+    </section> -->
+  </div>
+
+

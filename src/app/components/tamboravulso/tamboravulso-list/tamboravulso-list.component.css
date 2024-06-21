@@ -1,0 +1,135 @@
+/* Utilize variáveis CSS para manter a consistência e facilitar alterações futuras */
+:root {
+  --border-color: currentColor;
+  --column-width-large: 60%;
+  --column-width-small: 40%;
+}
+
+.toolbar-title {
+  flex: 1;
+  text-align: center;
+ 
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+}
+
+mat-toolbar{
+  background-color: black;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+body{
+  background-color: white;
+}
+
+th,td   {
+  border: 1px solid black;
+  font-family: "Montserrat", sans-serif;
+}
+
+
+table{
+  background-color: #ffffff;
+  border: 2px solid black;
+}
+
+.mat-column-id {
+  width: 5em;
+  border-right: 1px solid var(--border-color);
+  padding-right: 24px;
+  text-align: center;
+}
+
+/* Simplifique as classes que compartilham o mesmo valor de largura */
+.mat-column-nomeTambor,
+.mat-column-descricao,
+.mat-column-preco,
+.mat-column-quantidadeEstoque,
+.mat-column-nomeImagem {
+  width: var(--column-width-large);
+}
+
+
+
+.mat-column-quantidadeEstoque {
+  width: var(--column-width-large);
+  text-align: center; 
+}
+
+.mat-column-marca,
+.mat-column-categoria {
+  width: var(--column-width-small);
+}
+
+.mat-column-acao {
+  text-align: center;
+  min-width: 10em;
+}
+
+/* Adicionando estilos personalizados */
+
+/* Estilo personalizado para a tabela */
+.mat-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.mat-table th,
+.mat-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.mat-table th {
+  background-color: #f2f2f2;
+}
+
+/* Estilo personalizado para os botões */
+.mat-icon-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.mat-icon-button:hover {
+  background-color: #45a049;
+}
+
+.mat-fab {
+  background-color: #2196F3;
+  color: white;
+}
+
+.mat-fab:hover {
+  background-color: #0b7dda;
+}
+
+/* Adicionando media queries para responsividade */
+@media (max-width: 768px) {
+  .mat-column-id,
+  .mat-column-nomeTambor,
+  .mat-column-descricao,
+  .mat-column-preco,
+  .mat-column-quantidadeEstoque,
+  .mat-column-nomeImagem,
+  .mat-column-marca,
+  .mat-column-categoria {
+    width: 100%; /* Ajuste a largura para dispositivos menores */
+  }
+}

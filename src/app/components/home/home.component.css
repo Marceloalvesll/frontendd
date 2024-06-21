@@ -1,0 +1,246 @@
+* {
+  font-family: "Montserrat", sans-serif !important;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.hero {
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero-content {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  padding: 20px;
+  border-radius: 10px;
+  text-shadow: 8px 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+.hero-content p {
+  font-family: "Montserrat", sans-serif !important;
+  font-size: 20px;
+}
+
+.hero-content a {
+
+  width: 100%;
+  margin-top: 20px;
+  background: #3CB371 !important;
+  color: #fff;
+  transition: background 0.3s;
+  font-family: "Montserrat", sans-serif;
+
+}
+
+.hero-content a:hover {
+  background: #2E8B57 !important;
+}
+
+.hero-content h1 {
+  font-size: 100px;
+
+}
+
+.hero-text {
+  text-align: center;
+  padding: 20px;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+
+
+.featured-products,
+.video-highlight,
+.testimonials,
+.categories {
+  margin: 40px 0;
+}
+
+.featured-products h2,
+.video-highlight h2,
+.testimonials h2,
+.categories h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.product-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+/* .product-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    width: 300px;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .product-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  } */
+
+
+.product-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  width: 300px;
+  margin: 10px;
+  text-align: center;
+  text-decoration: none;
+  /* Garantir que o texto não seja sublinhado */
+  color: #333;
+  /* Garantir que a cor do texto permaneça correta */
+  transition: transform 0.2s;
+  /* Adiciona uma pequena animação ao passar o mouse */
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  /* Amplia ligeiramente o cartão ao passar o mouse */
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+
+.video-highlight .video-card {
+  text-align: center;
+  margin: 20px auto;
+  max-width: 560px;
+}
+
+.video-card iframe {
+  width: 100%;
+  height: 315px;
+  border-radius: 10px;
+}
+
+.video-card h3 {
+  margin: 10px 0;
+}
+
+.video-card p {
+  font-size: 1.1em;
+}
+
+/* .testimonials .testimonial {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+  } */
+
+.testimonials {
+  background-color: #f9f9f9;
+  /* Fundo leve para destaque */
+  padding: 40px 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials h2 {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 700;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.testimonial {
+  margin-bottom: 20px;
+}
+
+.testimonial p {
+  font-family: "Montserrat", sans-serif !important;
+  font-style: italic;
+  font-size: 1.2em;
+  color: #666;
+  margin: 0 0 10px 0;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial h4 {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 600;
+  font-size: 1em;
+  color: #333;
+  margin: 0;
+}
+
+/* Adiciona espaçamento entre os itens de testemunhos */
+.testimonial:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+.categories .category-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.categories a {
+  text-align: center;
+  color: #333;
+  text-decoration: none;
+  width: 150px;
+  margin: 10px;
+}
+
+.categories a img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}

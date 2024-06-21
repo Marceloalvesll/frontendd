@@ -1,0 +1,77 @@
+
+<div class="checkout-container">
+  <h1>Finalizar Pedido</h1>
+  <div *ngIf="carrinhoItems.length > 0; else emptyCart">
+    <div *ngFor="let item of carrinhoItems" class="checkout-item">
+      <p class="checkout-item-name">{{ item.nome }}</p>
+      <p class="checkout-item-quantity">{{ item.quantidade }} x</p>
+      <p class="checkout-item-price">{{ item.preco | currency:'BRL' }}</p>
+    </div>
+    <div class="total-section">
+      <p class="total-label">Total:</p>
+      <p class="total-value">{{ totalCarrinho | currency:'BRL' }}</p>
+    </div>
+
+    <form [formGroup]="paymentForm" (ngSubmit)="onCheckout()" class="payment-form">
+      <div class="payment-section">
+        <h2>Informações de Pagamento</h2>
+
+        <mat-radio-group formControlName="paymentMethod" class="payment-method">
+          <mat-radio-button class="press-button" value="card">Cartão de Crédito</mat-radio-button>
+          <mat-radio-button class="press-button" value="pix">Pix</mat-radio-button>
+        </mat-radio-group>
+
+        <ng-container *ngIf="paymentForm.get('paymentMethod')?.value === 'card'">
+          <div class="card-visual">
+            <div class="card-number" id="cardNumberDisplay">XXXX XXXX XXXX XXXX</div>
+            <div class="card-name" id="cardNameDisplay">NOME NO CARTÃO</div>
+            <div class="card-expiry" id="expiryDateDisplay">MM/AA</div>
+          </div>
+
+           <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Número do Cartão</mat-label>
+            <input matInput formControlName="cardNumber" maxlength="16" placeholder="XXXX XXXX XXXX XXXX" (input)="updateCardDisplay()">         
+            <mat-error *ngIf="paymentForm.get('cardNumber')?.hasError('required')">
+              O número do cartão é obrigatório.
+            </mat-error> 
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="form-field" [ngClass]="{'mat-form-field-invalid': paymentForm.get('cardName')?.invalid}">
+            <mat-label>Nome no Cartão</mat-label>
+            <input matInput formControlName="cardName" (input)="updateCardDisplay()">
+            <mat-error *ngIf="paymentForm.get('cardName')?.hasError('required')">
+              O nome no cartão é obrigatório.
+            </mat-error>
+          </mat-form-field>
+          
+          <mat-form-field appearance="outline" class="form-field" [ngClass]="{'mat-form-field-invalid': paymentForm.get('expiryDate')?.invalid}">
+            <mat-label>Data de Validade</mat-label>
+            <input matInput formControlName="expiryDate" maxlength="10" placeholder="MM/AA" (input)="updateCardDisplay()">
+            <mat-error *ngIf="paymentForm.get('expiryDate')?.hasError('required')">
+              A data de validade é obrigatória.
+            </mat-error>
+          </mat-form-field>
+          
+          <mat-form-field appearance="outline" class="form-field" [ngClass]="{'mat-form-field-invalid': paymentForm.get('cvv')?.invalid}">
+            <mat-label>CVV</mat-label>
+            <input matInput formControlName="cvv" maxlength="3" type="password">
+            <mat-error *ngIf="paymentForm.get('cvv')?.hasError('required')">
+              O CVV é obrigatório.
+            </mat-error>
+          </mat-form-field>
+          
+
+        </ng-container>
+
+        <ng-container *ngIf="paymentForm.get('paymentMethod')?.value === 'pix'">
+          <p>Pagamento via Pix selecionado.</p>
+          <p>Cliente: {{ clienteLogado?.nome || clienteLogado?.login }}</p>
+        </ng-container>
+      </div>
+      <button mat-raised-button class="checkout-button" type="submit">Finalizar Compra</button>
+    </form>
+  </div>
+  <ng-template #emptyCart>
+    <p class="empty-cart-message">Seu carrinho está vazio.</p>
+  </ng-template>
+</div>

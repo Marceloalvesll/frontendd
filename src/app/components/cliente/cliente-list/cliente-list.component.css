@@ -1,0 +1,119 @@
+/* Estilos existentes */
+.toolbar-title {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .flex-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .mat-column-id,
+  .mat-column-nome,
+  /* .mat-column-sigla, */
+  .mat-column-acao {
+    border-right: 1px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+  
+  .mat-column-id {
+    width: 5em;
+  }
+  
+  .mat-column-nome {
+    flex: 1;
+  }
+  
+  /* .mat-column-sigla {
+    min-width: 5em;
+  } */
+  
+  .mat-column-acao {
+    min-width: 10em;
+  }
+  
+  /* Novas alterações */
+  /* Cor da toolbar vermelha */
+  .mat-toolbar-black {
+    background-color: #1e1e1e;
+    color: white;
+  }
+  
+  /* Ícone do botão Add em branco */
+  .add-button-icon {
+    color: white; /* Definindo a cor do ícone como branca */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Estilos para o botão do menu */
+  .menu-button {
+    color: white;
+  }
+  
+  /* Estilos adicionais para o componente UsuarioListComponent */
+  .mat-toolbar {
+    background-color: #1e1e1e;
+    color: white;
+  }
+  
+  .mat-toolbar button.mat-icon-button {
+    margin-right: 8px;
+  }
+  
+  .toolbar-title {
+    flex: 1;
+    text-align: center;
+    color: white;
+  }
+  
+  .mat-elevation-z8 {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .mat-row,
+  .mat-header-row {
+    display: flex;
+  }
+  
+  .mat-row {
+    margin-bottom: 10px;
+  }
+  
+  .mat-cell,
+  .mat-header-cell {
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid currentColor;
+    padding-right: 24px;
+  }
+  
+  .mat-header-cell {
+    font-weight: bold;
+  }
+  
+  .mat-cell:last-child,
+  .mat-header-cell:last-child {
+    border-right: none;
+  }
+  
+  .mat-cell button.mat-icon-button {
+    margin: 0 8px;
+  }
+  
+  .mat-cell button.mat-icon-button:last-child {
+    margin-right: 0;
+  }
+  .menu-button {
+    position: relative;
+    z-index: 999; /* Garante que o botão do menu esteja acima dos outros elementos */
+  }
+  .mat-cell {
+    box-sizing: content-box; /* Redefine a formatação de caixa para conteúdo apenas */
+  }
+  

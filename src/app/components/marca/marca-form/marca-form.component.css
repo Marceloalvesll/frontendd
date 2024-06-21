@@ -1,0 +1,50 @@
+.toolbar-title {
+    flex: 1;
+    text-align: center;
+  }
+
+.full-width-input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+mat-card {
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+mat-toolbar{
+    background-color: black;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+  
+  }
+  
+  body{
+    background-color: white;
+  }
+  
+
+  
+  mat-label,input{
+    font-family: "Montserrat", sans-serif;
+  }
+
+
+
+mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-container {
+    padding: 2rem; 
+}
+
+button[mat-raised-button] {
+    width: 120px;
+}
+
+button[mat-raised-button]:not(:last-child) {
+    margin-right: 1rem;
+}

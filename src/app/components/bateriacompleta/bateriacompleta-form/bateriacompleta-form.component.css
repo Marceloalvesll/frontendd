@@ -1,0 +1,221 @@
+/* .toolbar-title {
+    flex: 1;
+    text-align: center;
+  }
+
+.full-width-input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+mat-card {
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+mat-toolbar{
+    background-color: black;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+  
+  }
+  
+  body{
+    background-color: white;
+  }
+  
+
+  
+  mat-label,input{
+    font-family: "Montserrat", sans-serif;
+  }
+
+
+
+mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-container {
+    padding: 2rem; 
+    
+}
+
+button[mat-raised-button] {
+    width: 120px;
+}
+
+button[mat-raised-button]:not(:last-child) {
+    margin-right: 1rem;
+}
+
+
+
+
+
+.container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.centered-text {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
+mat-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+mat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+mat-card-footer button {
+  background: #3CB371 !important;
+  font-family: "Montserrat", sans-serif;
+  color: white !important;
+  transition: background 0.3s;
+  border: none;
+  border-radius: 0 0 8px 8px;
+}
+
+mat-card-footer button:hover {
+  background: #2E8B57 !important;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.toolbar-title {
+  flex: 1;
+  text-align: center;
+}
+
+.full-width-input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+mat-card {
+  max-width: 700px;
+  margin: 2rem auto;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+mat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+mat-toolbar {
+  background-color: black;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: white;
+}
+
+mat-label, input {
+  font-family: "Montserrat", sans-serif;
+}
+
+.form-container {
+  padding: 2rem; 
+}
+
+button[mat-raised-button] {
+  width: 120px;
+  /* width:48%;
+  padding: 16px; */
+}
+
+button[mat-raised-button]:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+.centered-text {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
+mat-card-footer button {
+  background: #3CB371 !important;
+  font-family: "Montserrat", sans-serif;
+  color: white !important;
+  transition: background 0.3s;
+  border: none;
+  border-radius: 0 0 8px 8px;
+}
+
+mat-card-footer button:hover {
+  background: #2E8B57 !important;
+}
+
+ 
+

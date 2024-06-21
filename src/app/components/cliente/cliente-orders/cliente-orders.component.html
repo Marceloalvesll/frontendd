@@ -1,0 +1,41 @@
+<div class="pedidos-container">
+    <div class="pedidos-header">
+      <h1>Pedidos Realizados</h1>
+      <button mat-icon-button color="primary" (click)="voltarParaPrincipal()" matTooltip="Voltar para a tela principal">
+        <mat-icon>home</mat-icon>
+      </button>
+    </div>
+  
+    <div *ngIf="cliente">
+      <h2>Dados do Cliente</h2>
+      <p><strong>Nome:</strong> {{ cliente.nome }}</p>
+      <p><strong>Email (Login):</strong> {{ cliente.login }}</p>
+  
+  <h2>Lista de Pedidos</h2>
+    <table mat-table [dataSource]="pedidos" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Pedido # </th>
+        <td mat-cell *matCellDef="let pedido"> {{pedido.id}} </td>
+      </ng-container>
+      <ng-container matColumnDef="dataHora">
+        <th mat-header-cell *matHeaderCellDef> Data </th>
+        <td mat-cell *matCellDef="let pedido"> {{pedido.dataHora | date}} </td>
+      </ng-container>
+      <ng-container matColumnDef="totalPedido">
+        <th mat-header-cell *matHeaderCellDef> Total </th>
+        <td mat-cell *matCellDef="let pedido"> {{pedido.totalPedido | currency:'BRL'}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="acao">
+        <th mat-header-cell *matHeaderCellDef> Ações </th>
+        <td mat-cell *matCellDef="let pedido">
+          <button mat-icon-button color="primary" (click)="visualizarPedido(pedido.id)" matTooltip="Visualizar Pedido">
+            <mat-icon>visibility</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>

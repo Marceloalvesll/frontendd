@@ -1,0 +1,20 @@
+<div class="login-container">
+    <div class="login-box">
+        <img class="login-icon" src="/assets/icons/login-svgrepo-com.svg" alt="LOGIN">
+        <h2 class="login-title">LOGIN</h2>
+        <form [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
+            <mat-form-field class="login-input" >
+                <input matInput placeholder="Login" formControlName="email" required>
+
+                <mat-error *ngIf="loginForm.get('email')!.hasError('required')">O login é obrigatório</mat-error>
+
+            </mat-form-field>
+            <mat-form-field class="login-input">
+                <input matInput type="password" placeholder="Senha" formControlName="password" required>
+                <mat-error *ngIf="loginForm.get('password')!.hasError('required')">A senha é obrigatória</mat-error>
+            </mat-form-field>
+            <button mat-raised-button class="login-button" color="primary" type="submit">LOGAR</button>
+        </form>
+        <button mat-raised-button class="cadastro-button" color="primary" type="button" (click)="navigate()">CADASTRAR</button>
+    </div>
+</div>

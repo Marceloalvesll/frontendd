@@ -1,0 +1,68 @@
+<!-- <div class="container responsive-grid">
+    <mat-card *ngFor="let card of cards()">
+
+        <img mat-card-image [src]="card.urlImagem" >
+
+        <mat-card-title class="centered-text"> {{card.nomeBateria}} </mat-card-title>
+
+        
+        <br/>
+        <mat-card-content class="centered-text"> {{card.preco}} R$ </mat-card-content>
+        <br/>
+        <mat-card-content class="centered-text"> {{card.marca}} </mat-card-content>
+        
+
+        <mat-card-footer>
+            <button 
+                (click)="adicionarAoCarrinho(card)"
+                style="width: 100%; padding: 16px;">Adicionar ao carrinho</button>
+        </mat-card-footer>
+    </mat-card>
+    
+</div>
+
+<mat-paginator 
+[pageSizeOptions]="[2, 4, 8, 16]" 
+[pageSize]="pageSize" 
+[length]="totalRecords"
+(page)="paginar($event)">
+</mat-paginator>
+ -->
+
+
+ <div class="container responsive-grid">
+    <mat-card *ngFor="let card of cards()">
+        <img mat-card-image [src]="card.urlImagem">
+
+        <mat-card-title class="centered-text">{{card.nomeBateria}}</mat-card-title>
+
+        <br />
+        <mat-card-content class="centered-text">{{card.preco}} R$</mat-card-content>
+        <br />
+        <mat-card-content class="centered-text">{{card.marca}}</mat-card-content>
+
+        <mat-card-actions class="centered-text">
+            <button mat-button class="view-more-button" (click)="toggleDetalhes(card.idBateriaCompleta)">Ver mais</button>
+        </mat-card-actions>
+
+        <div *ngIf="card.mostrarDetalhes" class="detalhes">
+            <p><strong>Categoria:</strong> {{card.categoria.nomeCategoria}}</p>
+            <p><strong>Quantidade de Tambores:</strong> {{card.quantidadeTambor}}</p>
+            <p><strong>Descrição:</strong> {{card.descricao}}</p>
+        </div>
+
+        <mat-card-footer>
+            <button 
+                (click)="adicionarAoCarrinho(card)"
+                class="add-to-cart-button"
+                style="width: 100%; padding: 16px;">Adicionar ao carrinho</button>
+        </mat-card-footer>
+    </mat-card>
+</div>
+
+<mat-paginator 
+    [pageSizeOptions]="[2, 4, 8, 16]" 
+    [pageSize]="pageSize" 
+    [length]="totalRecords"
+    (page)="paginar($event)">
+</mat-paginator>

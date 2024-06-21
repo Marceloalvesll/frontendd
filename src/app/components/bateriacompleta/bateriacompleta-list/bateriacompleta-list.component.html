@@ -1,0 +1,115 @@
+<mat-toolbar color="primary">
+    <div class="flex-container">
+
+      <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/bateriasCompleta">
+          <span>Bateria Completa</span>
+        </button>
+        <button mat-menu-item routerLink="/tamboresAvulso">
+  
+          <span>Tambor Avulso</span>
+        </button>
+        <button mat-menu-item routerLink="/categorias">
+  
+          <span>Categoria</span>
+        </button>
+        <button mat-menu-item routerLink="/acessorios">
+  
+          <span>Acessório</span>
+        </button>
+        <button mat-menu-item routerLink="/marcas">
+  
+          <span>Marca</span>
+        </button>
+        <button mat-menu-item routerLink="/baquetas">
+  
+          <span>Baqueta</span>
+        </button>
+
+        <button mat-menu-item routerLink="/enderecos">
+  
+          <span>Endereço</span>
+        </button>
+       
+        <button mat-menu-item routerLink="/telefones">
+  
+          <span>Telefone</span>
+        </button>
+      </mat-menu> -->
+
+      <span class="toolbar-title">Controle de Baterias Completa</span>
+      <button mat-fab color="black" routerLink="/admin/bateriasCompleta/new">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+  
+  <table mat-table [dataSource]="bateriasCompleta" class="mat-elevation-z8">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+      <!-- Nome Bateria Column -->
+      <ng-container matColumnDef="nomeBateria">
+        <th mat-header-cell *matHeaderCellDef> Nome Bateria</th>
+        <td mat-cell *matCellDef="let element"> {{element.nomeBateria}} </td>
+      </ng-container>
+        <!-- Quantidade Tambor Column -->
+        <ng-container matColumnDef="quantidadeTambor">
+            <th mat-header-cell *matHeaderCellDef> Quantidade Tambor </th>
+            <td mat-cell *matCellDef="let element"> {{element.quantidadeTambor}} </td>
+          </ng-container>
+            <!-- Descricao Column -->
+      <ng-container matColumnDef="descricao">
+        <th mat-header-cell *matHeaderCellDef> Descricao </th>
+        <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+      </ng-container>
+        <!-- Preco Column -->
+        <ng-container matColumnDef="preco">
+            <th mat-header-cell *matHeaderCellDef> Preco </th>
+            <td mat-cell *matCellDef="let element"> R$ {{element.preco}} </td>
+          </ng-container>
+            <!-- Quantidade Column -->
+      <ng-container matColumnDef="quantidadeEstoque">
+        <th mat-header-cell *matHeaderCellDef> Quantidade Estoque </th>
+        <td mat-cell *matCellDef="let element"> {{element.quantidadeEstoque}} </td>
+      </ng-container>
+        <!-- Nome Imagem  -->
+        <ng-container matColumnDef="nomeImagem">
+            <th mat-header-cell *matHeaderCellDef> Foto Produto </th>
+            <td mat-cell *matCellDef="let element"> {{element.nomeImagem}} </td>
+          </ng-container>
+  
+      <!-- Marca Column -->
+      <ng-container matColumnDef="marca">
+        <th mat-header-cell *matHeaderCellDef> Marca </th>
+        <td mat-cell *matCellDef="let element"> {{element.marca.nomeMarca}} - {{element.marca.paisOrigem}} </td>
+      </ng-container>
+
+       <!-- Categoria Column -->
+       <ng-container matColumnDef="categoria">
+        <th mat-header-cell *matHeaderCellDef> Categoria </th>
+        <td mat-cell *matCellDef="let element"> {{element.categoria.nomeCategoria}} </td>
+      </ng-container>
+  
+      <!-- Acao Column -->
+      <ng-container matColumnDef="acao">
+        <th mat-header-cell *matHeaderCellDef> Ação </th>
+        <td mat-cell *matCellDef="let element"> 
+          <button mat-icon-button 
+                  
+                  routerLink="/admin/bateriasCompleta/edit/{{element.id}}">
+                  <mat-icon>edit</mat-icon>
+          </button>
+                
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>

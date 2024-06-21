@@ -1,0 +1,128 @@
+
+ <mat-toolbar color="primary" class="toolbar-title">Cadastro de Bateria Completa</mat-toolbar>
+ <div class="form-container">
+     <mat-card>
+         <mat-card-content>
+             <form [formGroup]="formGroup">
+                 <mat-form-field appearance="fill" class="full-width-input">
+                     <mat-label>Nome Bateria</mat-label>
+                     <input matInput type="text" formControlName="nomeBateria" #inputNomeBateria>
+                     <mat-error *ngIf="formGroup.get('nomeBateria') 
+                                    && formGroup.get('nomeBateria')?.invalid
+                                    && formGroup.get('nomeBateria')?.touched">
+                         O nome é obrigatorio.
+                     </mat-error>
+                 </mat-form-field>
+                 
+                 <mat-form-field appearance="fill" class="full-width-input">
+                     <mat-label>Quantidade Tambor</mat-label>
+                     <input matInput type="text" formControlName="quantidadeTambor">
+                     <mat-error *ngIf="formGroup.get('quantidadeTambor') 
+                                    && formGroup.get('quantidadeTambor')?.invalid
+                                    && formGroup.get('quantidadeTambor')?.touched">
+                         A quantidade de Tambores é obrigatorio.
+                     </mat-error>
+                 </mat-form-field>
+ 
+                 <mat-form-field appearance="fill" class="full-width-input">
+                     <mat-label>Descricao</mat-label>
+                     <input matInput type="text" formControlName="descricao">
+                     <mat-error *ngIf="formGroup.get('descricao') 
+                                    && formGroup.get('descricao')?.invalid
+                                    && formGroup.get('descricao')?.touched">
+                         A descrição é obrigatoria.
+                     </mat-error>
+                 </mat-form-field>
+ 
+                 <mat-form-field appearance="fill" class="full-width-input">
+                     <mat-label>Preco</mat-label>
+                     <input matInput type="text" formControlName="preco" #inputPreco>
+                     <mat-error *ngIf="formGroup.get('preco') 
+                                    && formGroup.get('preco')?.invalid
+                                    && formGroup.get('preco')?.touched">
+                         O preco é obrigatorio.
+                     </mat-error>
+                 </mat-form-field>
+ 
+                 <mat-form-field appearance="fill" class="full-width-input">
+                     <mat-label>Quantidade Estoque </mat-label>
+                     <input matInput type="text" formControlName="quantidadeEstoque">
+                     <mat-error *ngIf="formGroup.get('quantidadeEstoque') 
+                                    && formGroup.get('quantidadeEstoque')?.invalid
+                                    && formGroup.get('quantidadeEstoque')?.touched">
+                         A quantidade de Estoque é obrigatoria.
+                     </mat-error>
+                 </mat-form-field>
+ 
+            
+ 
+                 <mat-form-field appearance="fill">
+                    <mat-label>Marca</mat-label>
+                    <mat-select formControlName="marca">
+                        @for (marca of marcas; track marca.id) {
+                            <mat-option [value]="marca">
+                                {{marca.nomeMarca}} - {{marca.paisOrigem}}
+                            </mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+                
+
+                 <mat-form-field appearance="fill">
+                    <mat-label>Categoria</mat-label>
+                    <mat-select formControlName="categoria">
+                        @for (categoria of categorias; track categoria.id) {
+                            <mat-option [value]="categoria">
+                                {{categoria.nomeCategoria}}
+                            </mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+ 
+                 <mat-form-field appearance="fill" class="full-width-input">
+                     <mat-label>Nome Imagem</mat-label>
+                     <input matInput type="text" formControlName="nomeImagem">
+                     <mat-error *ngIf="formGroup.get('nomeImagem') 
+                                    && formGroup.get('nomeImagem')?.invalid
+                                    && formGroup.get('nomeImagem')?.touched">
+                         O nome da imagem é obrigatorio.
+                     </mat-error>
+                 </mat-form-field>
+ 
+                 <mat-form-field appearance="outline" class="full-width-input">
+                     <mat-label>Imagem da Consulta</mat-label>
+                     <input type="file" (change)="carregarImagemSelecionada($event)" hidden #fileInput>
+                     <input matInput [value]="fileName" readonly>
+                     <button mat-icon-button matSuffix (click)="fileInput.click()">
+                         <mat-icon>folder_open</mat-icon>
+                     </button>   
+                 </mat-form-field>
+ 
+                 <div *ngIf="imagePreview" class="container responsive-grid">
+                     <mat-card>
+                         <img mat-card-image [src]="imagePreview">
+                         <mat-card-title class="centered-text">{{inputNomeBateria.value}}</mat-card-title>
+                         <br/>
+                         <mat-card-content class="centered-text">{{inputPreco.value}} R$</mat-card-content>
+                         <br/>
+                         <mat-card-content class="centered-text">{{formGroup.get('marca')?.value.nomeMarca}}</mat-card-content>
+
+                     </mat-card>
+                 </div>
+             </form>
+         </mat-card-content>
+ 
+         <mat-card-actions>
+             <button mat-raised-button (click)="salvar()" [disabled]="formGroup.invalid"> 
+                 Salvar 
+             </button>
+             <button mat-raised-button *ngIf="formGroup?.get('id')?.value" (click)="excluir()" [disabled]="formGroup.invalid"> 
+                 Excluir 
+             </button>
+             <button mat-raised-button routerLink="/admin/bateriasCompleta"> 
+                 Cancelar 
+             </button>
+         </mat-card-actions>
+     </mat-card>
+ </div> 
+ 

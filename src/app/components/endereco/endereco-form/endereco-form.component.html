@@ -1,0 +1,244 @@
+<!-- <mat-sidenav-container class="sidenav-container" style="height: 100%">
+  <mat-sidenav #sidenav mode="over" opened="false">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home">Inicio</a>
+      <a mat-list-item routerLink="/produtos">Produtos</a>
+      <a mat-list-item routerLink="/enderecos">Endereços</a>
+      <a mat-list-item routerLink="/telefones">Telefones</a>
+      <a mat-list-item routerLink="/pedidos">Pedidos</a>
+      <a mat-list-item routerLink="/clientes">Meu usuário</a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar class="mat-toolbar-black">
+
+
+      <span class="toolbar-title">Cadastro de endereço</span>
+    </mat-toolbar>
+    <p></p>
+    <div class="form-container">
+      <mat-card>
+        <mat-card-content>
+          <form [formGroup]="formGroup">
+
+            <mat-form-field appearance="fill" class="full-width-input">
+              <mat-label>Rua</mat-label>
+              <input matInput type="text" formControlName="rua" />
+              <mat-error
+                *ngIf="
+                  formGroup.get('rua') &&
+                  formGroup.get('rua')?.invalid &&
+                  formGroup.get('rua')?.touched
+                "
+                >A rua é obrigatório.</mat-error
+              >
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width-input">
+              <mat-label>Numero</mat-label>
+              <input matInput type="text" formControlName="numero" />
+
+              <mat-error
+                *ngIf="
+                  formGroup.get('numero') &&
+                  formGroup.get('numero')?.invalid &&
+                  formGroup.get('numero')?.touched
+                "
+                >O numero é obrigatório.</mat-error
+              >
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width-input">
+              <mat-label>Cidade</mat-label>
+              <input matInput type="text" formControlName="cidade" />
+
+              <mat-error
+                *ngIf="
+                  formGroup.get('cidade') &&
+                  formGroup.get('cidade')?.invalid &&
+                  formGroup.get('cidade')?.touched
+                "
+                >a cidade é obrigatória.</mat-error
+              >
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width-input">
+              <mat-label>Estado</mat-label>
+              <input matInput type="text" formControlName="estado" />
+              <mat-error
+                *ngIf="
+                  formGroup.get('estado') &&
+                  formGroup.get('estado')?.invalid &&
+                  formGroup.get('estado')?.touched
+                "
+                >O estado é obrigatório.</mat-error
+              >
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width-input">
+              <mat-label>Cep</mat-label>
+              <input matInput type="text" formControlName="cep" />
+              <mat-error
+                *ngIf="
+                  formGroup.get('cep') &&
+                  formGroup.get('cep')?.invalid &&
+                  formGroup.get('cep')?.touched
+                "
+                >O cep é obrigatório.</mat-error
+              >
+            </mat-form-field>
+
+          </form>
+
+
+        </mat-card-content>
+
+
+        <mat-card-actions>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="salvarEndereco()"
+            [disabled]="formGroup.invalid"
+          >
+            Salvar
+          </button>
+          <button
+            mat-raised-button
+            *ngIf="formGroup?.get('id')?.value"
+            color="warn"
+            (click)="excluirEndereco()"
+            [disabled]="formGroup.invalid"
+          >
+            Excluir
+          </button>
+          <button
+            mat-raised-button
+            routerLink="/enderecos/cliente/{{ idCliente }}/"
+          >
+            Cancelar
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-sidenav-content></mat-sidenav-container
+> -->
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" [(opened)]="isMenuOpen">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/perfil">Perfil</a>
+      <!-- <a mat-list-item routerLink="/perfil/edit">Editar Dados</a>
+      <a mat-list-item routerLink="/perfil/pedidos">Pedidos Realizados</a> -->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <button mat-icon-button (click)="toggleSidebar()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Cadastro de Endereço</span>
+    </mat-toolbar>
+    <div class="form-container">
+
+      <!-- <mat-card>
+        <mat-card-content>
+          <form [formGroup]="formGroup">
+            <mat-form-field appearance="outline">
+              <mat-label>Rua</mat-label>
+              <input matInput formControlName="rua" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Número</mat-label>
+              <input matInput formControlName="numero" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Cidade</mat-label>
+              <input matInput formControlName="cidade" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Estado</mat-label>
+              <input matInput formControlName="estado" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>CEP</mat-label>
+              <input matInput formControlName="cep" />
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" (click)="salvarEndereco()">
+              Salvar
+            </button>
+            <button mat-raised-button color="warn" (click)="excluirEndereco()">
+              Excluir
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-card> -->
+
+      <mat-card>
+        <mat-card-title>Adicionar Endereço</mat-card-title>
+        <mat-card-content>
+          <form [formGroup]="formGroup" (ngSubmit)="salvarEndereco()">
+            <mat-form-field appearance="fill">
+              <mat-label>Rua</mat-label>
+              <input matInput formControlName="rua" required>
+              <mat-error *ngIf="formGroup.get('rua')?.hasError('required')">
+                Rua é obrigatória.
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              
+              <mat-label>Número</mat-label>
+              <input matInput formControlName="numero" required>
+              <mat-error *ngIf="formGroup.get('numero')?.hasError('required')">
+                Número é obrigatório.
+              </mat-error>
+
+              <mat-error *ngIf="formGroup.get('numero')?.hasError('pattern')">
+                Insira somente números.
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Cidade</mat-label>
+              <input matInput formControlName="cidade" required>
+              <mat-error *ngIf="formGroup.get('cidade')?.hasError('required')">
+                Cidade é obrigatória.
+              </mat-error>
+       
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Estado</mat-label>
+              <input matInput formControlName="estado" placeholder="Ex: Tocantins">
+              <mat-error *ngIf="formGroup.get('estado')?.hasError('required')">
+                Estado é obrigatório.
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>CEP</mat-label>
+              <input matInput formControlName="cep" placeholder="Ex: 12345-678" maxlength="9">
+              <mat-error *ngIf="formGroup.get('cep')?.hasError('required')">
+                CEP é obrigatório.
+              </mat-error>
+              <mat-error *ngIf="formGroup.get('cidade')?.hasError('pattern')">
+                CEP inválido.
+              </mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit">Salvar</button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
